@@ -22,8 +22,9 @@ jobs:
           echo "THEOS=$HOME/theos" >> $GITHUB_ENV
           echo "PATH=$HOME/theos/bin:$PATH" >> $GITHUB_ENV
 
-      - name: Setup iOS SDK (auto)
+      - name: Setup iOS SDK (auto clean)
         run: |
+          rm -rf $HOME/theos/sdks
           git clone https://github.com/theos/sdks.git $HOME/theos/sdks
 
       - name: Build dylib
